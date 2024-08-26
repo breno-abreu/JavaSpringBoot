@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 
 import com.example.models.Person;
 import com.example.services.PersonServices;
@@ -24,9 +25,9 @@ public class PersonController {
 	private PersonServices service;
 	
 	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public Person findById(@PathVariable String id) throws Exception{
+	public Person findById(@PathVariable Long id) throws Exception{
 		return service.findById(id);
-	}
+	} 
 	
 	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> findAll(){
@@ -44,8 +45,9 @@ public class PersonController {
 	}
 	
 	@DeleteMapping(value="/{id}")
-	public void delete(@PathVariable String id){
+	public ResponseEntity<?> delete(@PathVariable Long id){
 		service.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 	
 }
