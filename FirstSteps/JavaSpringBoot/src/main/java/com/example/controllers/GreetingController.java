@@ -1,6 +1,9 @@
 package com.example.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.Greeting;
+
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
