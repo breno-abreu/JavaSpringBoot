@@ -27,8 +27,8 @@ public class MathController {
 	
 	@GetMapping(value="/sub/{n1}/{n2}")
 	public Double sub(
-			@PathVariable(value="n1") String n1,
-			@PathVariable(value="n2") String n2
+			@PathVariable String n1,
+			@PathVariable String n2
 		) throws UnsupportedMathOperationException {
 		
 		if(!MathUtils.isNumeric(n1) || !MathUtils.isNumeric(n2)) 
